@@ -1,2 +1,2 @@
 # RiceCube
-Opengl Graphic Engine
+Opengl Graphic Tutorial
