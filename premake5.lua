@@ -1,6 +1,6 @@
 workspace "RiceCube"
     startproject "RiceCube"
-    
+
     configurations
     {
         "Debug",
