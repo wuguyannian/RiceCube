@@ -26,7 +26,7 @@ namespace RiceCube
 
 #define EVENT_CLASS_TYPE(type)	\
 	static EventType getStaticType() { return EventType::##type; } \
-	virtual	EventType GetEventType() const override { return getStaticType(); } \
+	virtual	EventType getEventType() const override { return getStaticType(); } \
 	virtual	const char* getName() const override { return #type; }
 
 #define EVENT_CLASS_CATEGORY(category) \
@@ -41,12 +41,35 @@ namespace RiceCube
 		virtual std::string toString() const { return getName(); }
 
 		inline bool isInCategory(EventCategory category) { return getCategoryFlags() & category; }
+
+		bool _handled = false;
 	};
 
 	class EventDispatcher
 	{
 	public:
 		template<typename T>
-		using EventFn = std::funtion<
+		using EventFn = std::function<bool(T&)>;
+		
+		EventDispatcher(Event& evt)
+			: m_evt(evt)
+		{}
+
+		template<typename T>
+		bool Dispatch(EventFn<T> func)
+		{
+			if (m_evt.getEventType() == T::getStaticType())
+			{
+				m_evt._handled = func(*(T*)& m_evt);
+			}
+		}
+
+	private:
+		Event& m_evt;
 	};
+
+	inline std::ostream& operator << (std::ostream& os, const Event& evt)
+	{
+		return os << evt.toString();
+	}
 }

@@ -1,4 +1,6 @@
 workspace "RiceCube"
+    startproject "RiceCube"
+    
     configurations
     {
         "Debug",
@@ -22,7 +24,9 @@ workspace "RiceCube"
 outputdir = "%{cfg.platform}%{cfg.buildcfg}/%{prj.name}"
 
 include "3rd/spdlog.lua"
+include "3rd/glm.lua"
 include "3rd/glfw.lua"
+include "3rd/imgui.lua"
 
 project "RiceCube"
     location "RiceCube"
@@ -33,7 +37,9 @@ project "RiceCube"
 	objdir ("bin/obj/" .. outputdir)
 
     use_spdlog()
+    use_glm()
     use_glfw()
+    use_imgui()
 
     pchheader "ricepch.h"
     pchsource "%{prj.name}/src/ricepch.cpp"
