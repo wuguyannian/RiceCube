@@ -12,5 +12,6 @@ namespace RiceCube
 
 	void Application::run()
 	{
+
 	}
 }
