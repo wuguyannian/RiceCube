@@ -9,7 +9,7 @@ project "ImGui"
     language "C++"
 
     targetdir ("../bin/" .. outputdir)
-    objdir ("../bin/obj/" .. outputdir)
+	objdir ("../bin/obj/" .. outputdir)
     
     files
     {

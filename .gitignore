@@ -5,3 +5,6 @@ bin/
 
 #file
 *.user
+*.sln
+*.vcxproj
+*.filters
