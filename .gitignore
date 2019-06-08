@@ -1,6 +1,7 @@
 #directory
 .vs/
 bin/
+.vscode/
 
 #file
 *.user

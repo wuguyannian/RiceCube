@@ -5,8 +5,8 @@ workspace "RiceCube"
         "Release"
     }
 
-    platforms 
-    { 
+    platforms
+    {
         "Win32",
         "Win64"
     }
@@ -14,24 +14,34 @@ workspace "RiceCube"
     filter "platforms:Win32"
         system "Windows"
         architecture "x32"
-    
+
     filter "platforms:Win64"
         system "Windows"
         architecture "x86_64"
 
-outputdir = "%{cfg.platform}%{cfg.buildcfg}"
+outputdir = "%{cfg.platform}%{cfg.buildcfg}/%{prj.name}"
 
 include "3rd/spdlog.lua"
+include "3rd/glfw.lua"
 
 project "RiceCube"
     location "RiceCube"
     kind "ConsoleApp"
     language "C++"
 
-    targetdir("bin/"..outputdir.."/%{prj.name}")
-    objdir("bin/int/"..outputdir.."/%{prj.name}")
+    targetdir ("bin/" .. outputdir)
+	objdir ("bin/obj/" .. outputdir)
 
     use_spdlog()
+    use_glfw()
+
+    pchheader "ricepch.h"
+    pchsource "%{prj.name}/src/ricepch.cpp"
+
+    includedirs
+    {
+        "%{prj.name}/src"
+    }
 
     files
     {

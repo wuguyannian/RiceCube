@@ -1,4 +1,5 @@
-﻿#include "Application.h"
+﻿#include "ricepch.h"
+#include "Application.h"
 
 namespace RiceCube
 {

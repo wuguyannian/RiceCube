@@ -1,4 +1,5 @@
 ﻿#pragma once
 
 #include <string>
-#include <vector>
+
+#define BIT(b) (1 << b)
