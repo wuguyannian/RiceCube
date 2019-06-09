@@ -26,6 +26,7 @@ outputdir = "%{cfg.platform}%{cfg.buildcfg}/%{prj.name}"
 include "3rd/spdlog.lua"
 include "3rd/glm.lua"
 include "3rd/glfw.lua"
+include "3rd/glad.lua"
 include "3rd/imgui.lua"
 
 project "RiceCube"
@@ -39,6 +40,7 @@ project "RiceCube"
     use_spdlog()
     use_glm()
     use_glfw()
+    use_glad()
     use_imgui()
 
     pchheader "ricepch.h"
