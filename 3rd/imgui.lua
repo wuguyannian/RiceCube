@@ -1,9 +1,9 @@
 function use_imgui()
     includedirs "3rd/imgui"
-    links "ImGui"
+    links "imgui"
 end
 
-project "ImGui"
+project "imgui"
     location "imgui"
     kind "StaticLib"
     language "C++"

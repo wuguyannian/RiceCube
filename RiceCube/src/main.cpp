@@ -1,10 +1,10 @@
 ﻿#include "ricepch.h"
-#include "base.h"
-#include "Application.h"
-#include "event/event.h"
+#include "application.h"
+#include "log.h"
 
 int main()
 {
+    RiceCube::Log::init();
 	auto app = new RiceCube::Application();
 	app->run();
 	return 0;

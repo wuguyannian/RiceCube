@@ -61,7 +61,9 @@ namespace RiceCube
 			if (m_evt.getEventType() == T::getStaticType())
 			{
 				m_evt._handled = func(*(T*)& m_evt);
+                return true;
 			}
+            return false;
 		}
 
 	private:

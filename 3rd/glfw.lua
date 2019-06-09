@@ -1,9 +1,9 @@
 function use_glfw()
     includedirs "3rd/GLFW/include"
-    links "GLFW"
+    links "glfw"
 end
 
-project "GLFW"
+project "glfw"
     location "glfw"
     kind "StaticLib"
     language "C"
