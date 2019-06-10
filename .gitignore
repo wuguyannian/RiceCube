@@ -4,7 +4,7 @@ bin/
 .vscode/
 
 #file
-*.user
 *.sln
-*.vcxproj
-*.filters
+/**/*.user
+/**/*.vcxproj
+/**/*.filters
