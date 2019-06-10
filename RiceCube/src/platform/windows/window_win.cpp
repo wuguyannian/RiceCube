@@ -1,8 +1,12 @@
 ﻿#include "ricepch.h"
 #include "window_win.h"
+#include "platform/opengl/context_opengl.h"
 #include "event/event_application.h"
 #include "event/event_key.h"
 #include "event/event_mouse.h"
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 namespace RiceCube
 {
@@ -31,7 +35,7 @@ namespace RiceCube
     void WinWindow::onUpdate()
     {
         glfwPollEvents();
-        glfwSwapBuffers(m_window);
+        m_context->swapBuffers();
     }
 
     void WinWindow::setVSync(bool enabled)    
@@ -65,6 +69,8 @@ namespace RiceCube
         m_window = glfwCreateWindow((int32_t)props._width, (int32_t)props._height, m_data._title.c_str(), nullptr, nullptr);
         
         glfwMakeContextCurrent(m_window);
+        m_context = std::unique_ptr<GraphicsContext>(new ContextOpenGL(m_window));
+        m_context->init();
 
         glfwSetWindowUserPointer(m_window, &m_data);
         setVSync(true);

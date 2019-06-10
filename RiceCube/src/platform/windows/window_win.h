@@ -1,8 +1,9 @@
 ﻿#pragma once
 
 #include "window.h"
+#include "render/graphics_context.h"
 
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 namespace RiceCube
 {
@@ -37,5 +38,6 @@ namespace RiceCube
 
         WindowData m_data;
         GLFWwindow* m_window;
+        std::unique_ptr<GraphicsContext> m_context;
     };
 }
