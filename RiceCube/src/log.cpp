@@ -1,6 +1,6 @@
 ﻿#include "ricepch.h"
 #include "log.h"
-#include <spdlog/sinks/stdout_color_sinks.h>
+#include <spdlog/sinks/stdout_sinks.h>
 
 namespace RiceCube
 {
